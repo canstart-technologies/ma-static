@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>M.A. Engineering Industries | Precision Sheet Metal Fabrication</title>
+        <meta
+            name="description"
+            content="M.A. Engineering Industries — Precision sheet metal fabrication in Vasai East, Palghar. Job‑work specialists: CNC Turret Punching, Laser Cutting, Press Brake Bending, Welding, Powder Coating & Assembly."
+        />
+        <meta property="og:title" content="M.A. Engineering Industries" />
+        <meta
+            property="og:description"
+            content="Precision sheet metal fabrication for OEMs & SMEs in Vasai East. RFQ → Prototype → Production."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/og-image.jpg" />
+        <meta name="theme-color" content="#D9252A" />
+
+        <!-- Tailwind Play CDN with brand theme -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            'brand-red': '#D9252A',
+                            'brand-green': '#3A9D49',
+                            ink: '#1F2937',
+                        },
+                        boxShadow: {
+                            elevate: '0 10px 20px rgba(0,0,0,0.06), 0 6px 6px rgba(0,0,0,0.08)',
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <!-- Lucide Icons -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+
+        <style>
+            /* Simple fade-in-up animation; disabled for prefers-reduced-motion */
+            @media (prefers-reduced-motion: no-preference) {
+                .reveal { opacity: 0; transform: translateY(16px); transition: all 600ms ease; }
+                .reveal.active { opacity: 1; transform: translateY(0); }
+            }
+        </style>
+    </head>
+    <body class="min-h-screen bg-white text-ink">
+        <!-- Skip link for accessibility -->
+        <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white text-ink px-3 py-2 rounded shadow">Skip to content</a>
+
+        <!-- Header -->
+        <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
+            <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+                <div class="relative min-h-[150px] py-2 flex items-center justify-center">
+                    <!-- Left navigation (desktop) -->
+                    <nav class="hidden md:flex items-center gap-6 absolute left-0">
+                        <a href="#" class="hover:text-brand-red">Home</a>
+                        <a href="#about" class="hover:text-brand-red">About</a>
+                        <div class="relative group">
+                            <button class="inline-flex items-center gap-1 hover:text-brand-red">
+                                Products
+                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                            </button>
+                            <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition pointer-events-none group-hover:pointer-events-auto absolute left-0 mt-3 w-64 rounded-lg border bg-white shadow-elevate p-2">
+                                <a href="#products" class="block rounded px-3 py-2 hover:bg-gray-50">Enclosures</a>
+                                <a href="#products" class="block rounded px-3 py-2 hover:bg-gray-50">Control Panels</a>
+                                <a href="#products" class="block rounded px-3 py-2 hover:bg-gray-50">Inverter Cabinets</a>
+                                <a href="#products" class="block rounded px-3 py-2 hover:bg-gray-50">Fire Alarm Boxes</a>
+                                <a href="#products" class="block rounded px-3 py-2 hover:bg-gray-50">Brackets & Components</a>
+                            </div>
+                        </div>
+                        <a href="#services" class="hover:text-brand-red">Services</a>
+                        <a href="#work" class="hover:text-brand-red">Work</a>
+                        <a href="#contact" class="hover:text-brand-red">Contact</a>
+                    </nav>
+
+                    <!-- Centered logo -->
+                    <a href="#" class="absolute left-1/2 -translate-x-1/2">
+                        <img src="logo.svg" alt="M.A. Engineering Industries logo" width="200" height="150" class="block w-[200px] h-[150px] object-contain" />
+                    </a>
+
+                    <!-- Right actions: CTA (desktop) + Menu button (mobile) -->
+                    <div class="absolute right-0 flex items-center gap-3">
+                        <a href="#contact" class="hidden md:inline-flex items-center rounded-md bg-brand-red px-4 py-2 text-white shadow hover:bg-red-700 transition">Request a Quote</a>
+                        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:bg-gray-100" aria-label="Open menu">
+                            <i data-lucide="menu"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                                <div id="mobileMenu" class="md:hidden hidden pb-4">
+                                        <nav class="flex flex-col gap-1">
+                                                <a href="#" class="py-2 px-2 rounded hover:bg-gray-50">Home</a>
+                                                <a href="#about" class="py-2 px-2 rounded hover:bg-gray-50">About</a>
+                                                <button id="mobileProductsBtn" class="py-2 px-2 text-left rounded hover:bg-gray-50 inline-flex items-center justify-between">
+                                                    <span>Products</span>
+                                                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                                                </button>
+                                                <div id="mobileProductsList" class="hidden pl-4">
+                                                    <a href="#products" class="block py-2 px-2 rounded hover:bg-gray-50">Enclosures</a>
+                                                    <a href="#products" class="block py-2 px-2 rounded hover:bg-gray-50">Control Panels</a>
+                                                    <a href="#products" class="block py-2 px-2 rounded hover:bg-gray-50">Inverter Cabinets</a>
+                                                    <a href="#products" class="block py-2 px-2 rounded hover:bg-gray-50">Fire Alarm Boxes</a>
+                                                    <a href="#products" class="block py-2 px-2 rounded hover:bg-gray-50">Brackets & Components</a>
+                                                </div>
+                                                <a href="#services" class="py-2 px-2 rounded hover:bg-gray-50">Services</a>
+                                                <a href="#work" class="py-2 px-2 rounded hover:bg-gray-50">Work</a>
+                                                <a href="#contact" class="py-2 px-2 rounded hover:bg-gray-50">Contact</a>
+                                                <a href="#contact" class="mt-2 inline-flex items-center justify-center rounded-md bg-brand-red px-4 py-2 text-white shadow hover:bg-red-700">Request a Quote</a>
+                                        </nav>
+                                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <!-- Hero with carousel -->
+            <section class="relative overflow-hidden">
+                <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 py-10 md:py-16 grid md:grid-cols-2 gap-10 items-center">
+                    <div class="reveal">
+                        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Precision Sheet Metal Fabrication</h1>
+                        <p class="mt-3 text-2xl font-semibold text-ink">Customized Enclosures</p>
+                        <p class="mt-2 text-ink">Under CNC Punching, Laser Cutting, Welding & Bending</p>
+                        <p class="mt-4 text-lg text-gray-600">We fabricate sheet metal enclosures, cabinets, and components as job‑work using CNC laser cutting/turret punching, press brake bending, and MIG/TIG & Laser welding, with in‑house powder coating — made to your drawings and delivered on time from Vasai (East), Palghar.</p>
+                        <div class="mt-8 flex flex-wrap gap-3">
+                            <a href="#services" class="inline-flex items-center rounded-md bg-brand-green px-6 py-3 text-white shadow-elevate hover:bg-emerald-700">Explore Capabilities</a>
+                        </div>
+                    </div>
+
+                                        <div class="reveal">
+                                                <!-- Hero slider: big visuals (transparent background, continuous) -->
+                                                <div class="relative h-[420px] md:h-[520px] lg:h-[640px] rounded-xl overflow-hidden" data-carousel data-autoplay data-speed="0.25">
+                                                    <div class="carousel-track h-full flex overflow-x-hidden">
+                                                        <div class="carousel-item shrink-0 w-full h-full grid place-items-center"><img src="assets/img/cnc-laser.webp" alt=""></div>
+                                                        <div class="carousel-item shrink-0 w-full h-full grid place-items-center"><img src="assets/img/cnc-punching.webp" alt=""></div>
+                                                        <div class="carousel-item shrink-0 w-full h-full grid place-items-center"><img src="assets/img/laser-spot-welding.webp" alt=""></div>
+                                                        <div class="carousel-item shrink-0 w-full h-full grid place-items-center"><img src="assets/img/spot-2.webp" alt=""></div>
+                                                        <div class="carousel-item shrink-0 w-full h-full grid place-items-center"><img src="assets/img/punching.png" alt=""></div>
+                                                    </div>
+                                                    
+                                                </div>
+                                        </div>
+                </div>
+            </section>
+
+            <!-- Trust bar -->
+            <section class="bg-gray-50">
+                <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 py-6">
+                    <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+                        <div class="reveal flex items-start gap-3">
+                            <i data-lucide="calendar-check" class="text-brand-green"></i>
+                            <div>
+                                <p class="font-semibold">Since 2009</p>
+                                <p class="text-sm text-gray-600">Trusted partner for OEMs & SMEs</p>
+                            </div>
+                        </div>
+                        <div class="reveal flex items-start gap-3">
+                            <i data-lucide="factory" class="text-brand-green"></i>
+                            <div>
+                                <p class="font-semibold">In‑house Processes</p>
+                                <p class="text-sm text-gray-600">Punch · Laser · Bend · Weld · Coat</p>
+                            </div>
+                        </div>
+                        <div class="reveal flex items-start gap-3">
+                            <i data-lucide="shield-check" class="text-brand-green"></i>
+                            <div>
+                                <p class="font-semibold">Quality Focus</p>
+                                <p class="text-sm text-gray-600">Tight tolerances and QC checks</p>
+                            </div>
+                        </div>
+                        <div class="reveal flex items-start gap-3">
+                            <i data-lucide="truck" class="text-brand-green"></i>
+                            <div>
+                                <p class="font-semibold">On‑time Delivery</p>
+                                <p class="text-sm text-gray-600">Prototype to production</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- Post-trust narrative section -->
+                        <section class="py-8">
+                            <div class="mx-auto max-w-5xl px-3 sm:px-4 lg:px-6 text-center">
+                                <h2 class="reveal text-2xl md:text-3xl font-bold">Trusted by OEMs & SMEs Across India</h2>
+                                <p class="reveal mt-3 text-gray-600">M.A. Engineering Industries is a Vasai-based sheet metal job-work partner for custom enclosures and precision components — serving electrical, electronics, and industrial applications.</p>
+                                <div class="reveal mt-6">
+                                    <a href="#contact" class="inline-flex items-center rounded-md bg-brand-red px-6 py-3 text-white shadow-elevate hover:bg-red-700">Request a Quote</a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Brand logos carousel -->
+                        <section class="py-6 bg-white">
+                            <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+                                <h3 class="text-center font-semibold text-ink">Proudly Worked With Vendors Of</h3>
+                                <div class="mt-6 relative" data-carousel data-autoplay data-speed="0.20">
+                                    <div class="carousel-track flex gap-6 overflow-x-hidden">
+                                        <div class="carousel-item shrink-0 w-48 h-20 grid place-items-center">Logo 1</div>
+                                        <div class="carousel-item shrink-0 w-48 h-20 grid place-items-center">Logo 2</div>
+                                        <div class="carousel-item shrink-0 w-48 h-20 grid place-items-center">Logo 3</div>
+                                        <div class="carousel-item shrink-0 w-48 h-20 grid place-items-center">Logo 4</div>
+                                        <div class="carousel-item shrink-0 w-48 h-20 grid place-items-center">Logo 5</div>
+                                        <div class="carousel-item shrink-0 w-48 h-20 grid place-items-center">Logo 6</div>
+                                    </div>
+                                    <button class="absolute -left-3 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow" data-prev aria-label="Previous"><i data-lucide="chevron-left"></i></button>
+                                    <button class="absolute -right-3 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow" data-next aria-label="Next"><i data-lucide="chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Services carousel -->
+            <section id="services" class="py-12 md:py-16">
+                <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+                                        <div class="reveal text-center">
+                                                <h2 class="text-3xl font-bold">Explore Our Capabilities</h2>
+                                                <p class="mt-2 text-gray-600">Each service includes end‑to‑end handling and quality checks.</p>
+                                        </div>
+                                        <div class="mt-8 relative" data-carousel>
+                                                <div class="carousel-track flex gap-6 overflow-x-hidden snap-x snap-mandatory">
+                                                        <!-- Slide: CNC Punching -->
+                                                        <article class="carousel-item snap-start shrink-0 w-80 sm:w-[28rem] rounded-xl border shadow-sm bg-white">
+                                                            <div class="h-48 w-full rounded-t-xl bg-gradient-to-br from-gray-100 to-gray-200 grid place-items-center">Image: CNC Punching</div>
+                                                            <div class="p-6">
+                                                                <h3 class="font-semibold">CNC Turret Punching</h3>
+                                                                <p class="mt-2 text-sm text-gray-600">High‑speed punching for repeatable accuracy and clean edges on MS/SS/Al.</p>
+                                                            </div>
+                                                        </article>
+                                                        <!-- Slide: Laser Cutting -->
+                                                        <article class="carousel-item snap-start shrink-0 w-80 sm:w-[28rem] rounded-xl border shadow-sm bg-white">
+                                                            <div class="h-48 w-full rounded-t-xl bg-gradient-to-br from-gray-100 to-gray-200 grid place-items-center">Image: Laser Cutting</div>
+                                                            <div class="p-6">
+                                                                <h3 class="font-semibold">Laser Cutting</h3>
+                                                                <p class="mt-2 text-sm text-gray-600">Intricate profiles with tight tolerances and minimal burr.</p>
+                                                            </div>
+                                                        </article>
+                                                        <!-- Slide: Press Brake -->
+                                                        <article class="carousel-item snap-start shrink-0 w-80 sm:w-[28rem] rounded-xl border shadow-sm bg-white">
+                                                            <div class="h-48 w-full rounded-t-xl bg-gradient-to-br from-gray-100 to-gray-200 grid place-items-center">Image: Press Brake</div>
+                                                            <div class="p-6">
+                                                                <h3 class="font-semibold">Press Brake Bending</h3>
+                                                                <p class="mt-2 text-sm text-gray-600">Accurate bends and complex folds with consistent finish.</p>
+                                                            </div>
+                                                        </article>
+                                                        <!-- Slide: Welding -->
+                                                        <article class="carousel-item snap-start shrink-0 w-80 sm:w-[28rem] rounded-xl border shadow-sm bg-white">
+                                                            <div class="h-48 w-full rounded-t-xl bg-gradient-to-br from-gray-100 to-gray-200 grid place-items-center">Image: Welding</div>
+                                                            <div class="p-6">
+                                                                <h3 class="font-semibold">MIG/TIG & Laser Welding</h3>
+                                                                <p class="mt-2 text-sm text-gray-600">Strong joints and neat seams across materials and gauges.</p>
+                                                            </div>
+                                                        </article>
+                                                        <!-- Slide: Powder Coating -->
+                                                        <article class="carousel-item snap-start shrink-0 w-80 sm:w-[28rem] rounded-xl border shadow-sm bg-white">
+                                                            <div class="h-48 w-full rounded-t-xl bg-gradient-to-br from-gray-100 to-gray-200 grid place-items-center">Image: Powder Coating</div>
+                                                            <div class="p-6">
+                                                                <h3 class="font-semibold">Powder Coating & Assembly</h3>
+                                                                <p class="mt-2 text-sm text-gray-600">Durable finishes with in‑house assembly for faster delivery.</p>
+                                                            </div>
+                                                        </article>
+                                                </div>
+                                                <button class="absolute -left-3 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow" data-prev aria-label="Previous"><i data-lucide="chevron-left"></i></button>
+                                                <button class="absolute -right-3 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow" data-next aria-label="Next"><i data-lucide="chevron-right"></i></button>
+                                        </div>
+                                </div>
+                        </section>
+
+                        <!-- Products carousel -->
+                        <section id="products" class="py-12 bg-gray-50">
+                            <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+                                <div class="reveal text-center">
+                                    <h2 class="text-3xl font-bold">Our Products</h2>
+                                    <p class="mt-2 text-gray-600">A glimpse of enclosures, cabinets, panels, and precision components.</p>
+                                </div>
+                                <div class="mt-8 relative" data-carousel data-autoplay data-speed="0.35">
+                                    <div class="carousel-track flex gap-4 overflow-x-hidden">
+                                        <article class="carousel-item snap-start shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                            <div class="h-40 w-full rounded-t-xl grid place-items-center">Image: Enclosures</div>
+                                            <div class="p-4">
+                                                <div class="flex items-center justify-between">
+                                                    <h3 class="font-semibold">Electrical Enclosures</h3>
+                                                    <span class="text-xs rounded-full bg-brand-green/10 text-brand-green px-2 py-0.5">IP Rated</span>
+                                                </div>
+                                                <p class="mt-2 text-sm text-gray-600">Custom control and junction boxes built to spec with clean finishing.</p>
+                                            </div>
+                                        </article>
+                                        <article class="carousel-item snap-start shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                            <div class="h-40 w-full rounded-t-xl grid place-items-center">Image: Panels</div>
+                                            <div class="p-4">
+                                                <div class="flex items-center justify-between">
+                                                    <h3 class="font-semibold">Control Panels</h3>
+                                                    <span class="text-xs rounded-full bg-brand-red/10 text-brand-red px-2 py-0.5">OEM</span>
+                                                </div>
+                                                <p class="mt-2 text-sm text-gray-600">Panels and cabinets with precise cutouts, labeling, and assembly.</p>
+                                            </div>
+                                        </article>
+                                        <article class="carousel-item snap-start shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                            <div class="h-40 w-full rounded-t-xl grid place-items-center">Image: Inverter</div>
+                                            <div class="p-4">
+                                                <div class="flex items-center justify-between">
+                                                    <h3 class="font-semibold">Inverter Cabinets</h3>
+                                                    <span class="text-xs rounded-full bg-gray-100 px-2 py-0.5">Heavy‑Duty</span>
+                                                </div>
+                                                <p class="mt-2 text-sm text-gray-600">Durable cabinets with ventilation and mounting provisions.</p>
+                                            </div>
+                                        </article>
+                                        <article class="carousel-item snap-start shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                            <div class="h-40 w-full rounded-t-xl grid place-items-center">Image: Fire Alarm</div>
+                                            <div class="p-4">
+                                                <div class="flex items-center justify-between">
+                                                    <h3 class="font-semibold">Fire Alarm Boxes</h3>
+                                                    <span class="text-xs rounded-full bg-gray-100 px-2 py-0.5">Safety</span>
+                                                </div>
+                                                <p class="mt-2 text-sm text-gray-600">Compact enclosures with precise cutouts and powder‑coated finish.</p>
+                                            </div>
+                                        </article>
+                                        <article class="carousel-item snap-start shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                            <div class="h-40 w-full rounded-t-xl grid place-items-center">Image: Brackets</div>
+                                            <div class="p-4">
+                                                <div class="flex items-center justify-between">
+                                                    <h3 class="font-semibold">Brackets & Components</h3>
+                                                    <span class="text-xs rounded-full bg-gray-100 px-2 py-0.5">Custom</span>
+                                                </div>
+                                                <p class="mt-2 text-sm text-gray-600">Precision parts for assemblies with consistent bends and welds.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <button class="absolute -left-3 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow" data-prev aria-label="Previous"><i data-lucide="chevron-left"></i></button>
+                                    <button class="absolute -right-3 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow" data-next aria-label="Next"><i data-lucide="chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Why choose us / About us -->
+            <section id="about" class="bg-white py-12 md:py-16">
+        <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 grid md:grid-cols-2 gap-10 items-center">
+                    <div class="reveal order-2 md:order-1">
+                                                <h2 class="text-3xl font-bold">About Us</h2>
+                                                <p class="mt-3 text-gray-600">We are a Vasai (East), Palghar–based precision sheet metal fabrication company delivering custom enclosures and components as job‑work. Our team supports you from RFQ to dispatch with DFM inputs, clean finishing, and reliable timelines.</p>
+                        <ul class="mt-6 space-y-3">
+                            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-brand-green mt-0.5"></i><span>End‑to‑end capability: punch, laser, bend, weld, powder coat, assemble</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-brand-green mt-0.5"></i><span>DFM feedback and quick prototypes to accelerate launch</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-brand-green mt-0.5"></i><span>Reliable schedules with quality checks at every stage</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="text-brand-green mt-0.5"></i><span>NDA‑friendly and documentation ready</span></li>
+                        </ul>
+                    </div>
+                    <div class="reveal order-1 md:order-2">
+                        <div class="relative aspect-[4/3] rounded-xl bg-gradient-to-br from-brand-green/10 via-white to-brand-red/10 border shadow-elevate"></div>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- Testimonials -->
+                        <section class="bg-gray-50 py-12">
+                            <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+                                <div class="reveal text-center">
+                                    <h2 class="text-3xl font-bold">What our clients say</h2>
+                                </div>
+                                <div class="mt-8 grid gap-6 md:grid-cols-3">
+                                    <blockquote class="reveal rounded-xl border bg-white p-6 shadow-sm">
+                                        <p class="text-gray-700">“Reliable partner for prototypes and production. Clean finishing and on‑time every time.”</p>
+                                        <footer class="mt-4 text-sm text-gray-500">Operations Manager, Electronics OEM</footer>
+                                    </blockquote>
+                                    <blockquote class="reveal rounded-xl border bg-white p-6 shadow-sm">
+                                        <p class="text-gray-700">“Great DFM suggestions saved cost and improved assembly.”</p>
+                                        <footer class="mt-4 text-sm text-gray-500">Plant Head, Industrial Controls</footer>
+                                    </blockquote>
+                                    <blockquote class="reveal rounded-xl border bg-white p-6 shadow-sm">
+                                        <p class="text-gray-700">“Responsive, NDA‑friendly, and quality focused.”</p>
+                                        <footer class="mt-4 text-sm text-gray-500">Founder, Hardware Startup</footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </section>
+
+            <!-- Process strip -->
+            <section class="py-8">
+                <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+                    <div class="reveal">
+                        <h2 class="text-2xl font-bold text-center">How we work</h2>
+                    </div>
+                    <ol class="mt-8 grid gap-6 sm:grid-cols-3 lg:grid-cols-6">
+                        <li class="reveal flex items-center gap-3"><i data-lucide="file-input" class="text-brand-green"></i> RFQ</li>
+                        <li class="reveal flex items-center gap-3"><i data-lucide="messages-square" class="text-brand-green"></i> DFM Feedback</li>
+                        <li class="reveal flex items-center gap-3"><i data-lucide="flask-conical" class="text-brand-green"></i> Prototype</li>
+                        <li class="reveal flex items-center gap-3"><i data-lucide="settings" class="text-brand-green"></i> Production</li>
+                        <li class="reveal flex items-center gap-3"><i data-lucide="shield-check" class="text-brand-green"></i> QC</li>
+                        <li class="reveal flex items-center gap-3"><i data-lucide="truck" class="text-brand-green"></i> Dispatch</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Featured products slider (replaces Recent Work section) -->
+            <section id="work" class="bg-gray-50 py-12">
+                <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+                    <div class="reveal text-center">
+                        <h2 class="text-3xl font-bold">Featured Products</h2>
+                        <p class="mt-2 text-gray-600">Hand‑picked enclosures and precision components we fabricate.</p>
+                    </div>
+                    <div class="mt-8 relative reveal" data-carousel data-autoplay data-speed="0.30">
+                        <div class="carousel-track flex gap-6 overflow-x-hidden">
+                            <!-- Product Card: Electrical Enclosure -->
+                            <article class="carousel-item shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                <div class="h-44 w-full rounded-t-xl bg-gray-100 overflow-hidden">
+                                    <img src="https://picsum.photos/seed/enclosure/640/480" alt="Electrical enclosure" class="w-full h-full object-cover" loading="lazy" />
+                                </div>
+                                <div class="p-4 flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="font-semibold">Electrical Enclosure</h3>
+                                        <span class="text-xs rounded-full bg-brand-green/10 text-brand-green px-2 py-0.5">IP Rated</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Category: Cabinets / Panels</p>
+                                    <p class="text-sm text-gray-600">Custom MS/SS boxes with clean cutouts and sealing options.</p>
+                                </div>
+                            </article>
+                            <!-- Product Card: Control Panel -->
+                            <article class="carousel-item shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                <div class="h-44 w-full rounded-t-xl bg-gray-100 overflow-hidden">
+                                    <img src="https://picsum.photos/seed/controlpanel/640/480" alt="Control panel" class="w-full h-full object-cover" loading="lazy" />
+                                </div>
+                                <div class="p-4 flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="font-semibold">Control Panel</h3>
+                                        <span class="text-xs rounded-full bg-brand-red/10 text-brand-red px-2 py-0.5">OEM</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Category: Industrial Controls</p>
+                                    <p class="text-sm text-gray-600">Precision punched layouts for wiring, labeling & integration.</p>
+                                </div>
+                            </article>
+                            <!-- Product Card: Inverter Cabinet -->
+                            <article class="carousel-item shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                <div class="h-44 w-full rounded-t-xl bg-gray-100 overflow-hidden">
+                                    <img src="https://picsum.photos/seed/inverter/640/480" alt="Inverter cabinet" class="w-full h-full object-cover" loading="lazy" />
+                                </div>
+                                <div class="p-4 flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="font-semibold">Inverter Cabinet</h3>
+                                        <span class="text-xs rounded-full bg-gray-100 px-2 py-0.5">Heavy‑Duty</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Category: Power Electronics</p>
+                                    <p class="text-sm text-gray-600">Ventilated design with structural stability & mounting provisions.</p>
+                                </div>
+                            </article>
+                            <!-- Product Card: Fire Alarm Box -->
+                            <article class="carousel-item shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                <div class="h-44 w-full rounded-t-xl bg-gray-100 overflow-hidden">
+                                    <img src="https://picsum.photos/seed/firealarm/640/480" alt="Fire alarm box" class="w-full h-full object-cover" loading="lazy" />
+                                </div>
+                                <div class="p-4 flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="font-semibold">Fire Alarm Box</h3>
+                                        <span class="text-xs rounded-full bg-gray-100 px-2 py-0.5">Safety</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Category: Safety Systems</p>
+                                    <p class="text-sm text-gray-600">Compact housing with precise apertures and durable coating.</p>
+                                </div>
+                            </article>
+                            <!-- Product Card: Brackets & Components -->
+                            <article class="carousel-item shrink-0 w-72 sm:w-80 rounded-xl border bg-white shadow-sm">
+                                <div class="h-44 w-full rounded-t-xl bg-gray-100 overflow-hidden">
+                                    <img src="https://picsum.photos/seed/brackets/640/480" alt="Brackets and components" class="w-full h-full object-cover" loading="lazy" />
+                                </div>
+                                <div class="p-4 flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="font-semibold">Brackets & Components</h3>
+                                        <span class="text-xs rounded-full bg-gray-100 px-2 py-0.5">Custom</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Category: Precision Parts</p>
+                                    <p class="text-sm text-gray-600">Repeatable bends & welds for assemblies and fixtures.</p>
+                                </div>
+                            </article>
+                        </div>
+                        <button class="absolute -left-3 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow" data-prev aria-label="Previous"><i data-lucide="chevron-left"></i></button>
+                        <button class="absolute -right-3 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow" data-next aria-label="Next"><i data-lucide="chevron-right"></i></button>
+                    </div>
+                    <div class="mt-8 text-center reveal">
+                        <a href="#products" class="inline-flex items-center rounded-md border border-gray-300 px-5 py-3 hover:bg-gray-50">View All Products</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA banner -->
+            <section class="relative isolate">
+                <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 py-10">
+                    <div class="reveal rounded-2xl bg-brand-red text-white p-8 md:p-12 shadow-elevate">
+                        <div class="md:flex md:items-center md:justify-between gap-6">
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-bold">Ready to start your next project?</h2>
+                                <p class="mt-2 text-white/90">Send your drawings and requirements — we’ll respond quickly.</p>
+                            </div>
+                            <div class="mt-6 md:mt-0 flex flex-wrap gap-3">
+                                <a href="#contact" class="inline-flex items-center rounded-md bg-white px-6 py-3 text-brand-red font-medium hover:bg-gray-100">Request a Quote</a>
+                                <a href="tel:+910000000000" class="inline-flex items-center rounded-md border border-white/40 px-6 py-3 hover:bg-white/10"><i data-lucide="phone" class="mr-2"></i>Call Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact anchor (placeholder) -->
+            <section id="contact" class="py-12">
+                <div class="mx-auto max-w-3xl px-3 sm:px-4 lg:px-6 reveal">
+                    <h2 class="text-3xl font-bold text-center">Request a Quote</h2>
+                    <p class="mt-2 text-center text-gray-600">Share your details and requirements. We’ll get back quickly.</p>
+                    <form id="rfqForm" class="mt-6 grid gap-4 rounded-xl border p-4 md:p-6 bg-white shadow-sm" novalidate>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <label class="block">
+                                <span class="text-sm font-medium">Full Name</span>
+                                <input type="text" name="name" required class="mt-1 w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-brand-green" placeholder="Your name" />
+                            </label>
+                            <label class="block">
+                                <span class="text-sm font-medium">Company Name</span>
+                                <input type="text" name="company" required class="mt-1 w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-brand-green" placeholder="Company Pvt. Ltd." />
+                            </label>
+                        </div>
+                        <div>
+                            <span class="text-sm font-medium">Phone Number</span>
+                            <div class="mt-1 flex gap-2">
+                                <select name="countryCode" class="w-28 rounded-md border px-2 py-2 focus:ring-2 focus:ring-brand-green">
+                                    <option value="+91">+91 (IN)</option>
+                                    <option value="+1">+1 (US)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+971">+971 (AE)</option>
+                                </select>
+                                <input type="tel" name="phone" required inputmode="numeric" pattern="[0-9]{7,15}" class="flex-1 rounded-md border px-3 py-2 focus:ring-2 focus:ring-brand-green" placeholder="10-digit number" />
+                            </div>
+                            <p class="mt-1 text-xs text-gray-500">We’ll only use this to contact you about your RFQ.</p>
+                        </div>
+                        <label class="block">
+                            <span class="text-sm font-medium">Service Required</span>
+                            <select name="service" required class="mt-1 w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-brand-green">
+                                <option value="" selected disabled>Select a service</option>
+                                <option>CNC Turret Punching</option>
+                                <option>Laser Cutting</option>
+                                <option>Press Brake Bending</option>
+                                <option>MIG/TIG & Laser Welding</option>
+                                <option>Powder Coating</option>
+                                <option>Assembly</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium">Message</span>
+                            <textarea name="message" rows="4" required class="mt-1 w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-brand-green" placeholder="Briefly describe your part(s), quantities, and material."></textarea>
+                        </label>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">By submitting, you agree to our <a href="#terms" class="underline">Terms</a> and <a href="#privacy" class="underline">Privacy Policy</a>.</div>
+                            <button type="submit" class="inline-flex items-center rounded-md bg-brand-red px-5 py-2.5 text-white shadow hover:bg-red-700">Send Now</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-gray-200 bg-white">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-8 md:grid-cols-4">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <div class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-green/10 text-brand-green font-bold">MA</div>
+                        <span class="font-semibold">M.A. Engineering Industries</span>
+                    </div>
+                    <p class="mt-3 text-sm text-gray-600">Precision sheet metal fabrication for OEMs & SMEs — prototypes to production.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Quick Links</h3>
+                    <ul class="mt-3 space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-brand-red">Home</a></li>
+                        <li><a href="#about" class="hover:text-brand-red">About</a></li>
+                        <li><a href="#services" class="hover:text-brand-red">Services</a></li>
+                        <li><a href="#work" class="hover:text-brand-red">Work</a></li>
+                        <li><a href="#contact" class="hover:text-brand-red">Contact</a></li>
+                        <li><a href="#terms" class="hover:text-brand-red">Terms</a></li>
+                        <li><a href="#privacy" class="hover:text-brand-red">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Services</h3>
+                    <ul class="mt-3 space-y-2 text-sm">
+                        <li>CNC Turret Punching</li>
+                        <li>Laser Cutting</li>
+                        <li>Press Brake Bending</li>
+                        <li>MIG/TIG/Spot Welding</li>
+                        <li>Powder Coating & Assembly</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Contact</h3>
+                    <ul class="mt-3 space-y-2 text-sm">
+                        <li>Vasai East, Palghar, Maharashtra</li>
+                        <li>Phone: +91 00000 00000</li>
+                        <li>Email: info@example.com</li>
+                        <li>Mon–Sat: 9:30 AM – 6:30 PM</li>
+                        <li class="flex gap-3 pt-2">
+                          <a href="#" aria-label="LinkedIn" class="text-gray-500 hover:text-brand-red"><i data-lucide="linkedin"></i></a>
+                          <a href="#" aria-label="Instagram" class="text-gray-500 hover:text-brand-red"><i data-lucide="instagram"></i></a>
+                          <a href="#" aria-label="WhatsApp" class="text-gray-500 hover:text-brand-red"><i data-lucide="message-circle"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 py-6 text-center text-sm text-gray-500">© <span id="year"></span> M.A. Engineering Industries. All rights reserved. • Designed & created by <a href="#" class="underline hover:text-brand-red">CanStart Technologies</a>.</div>
+        </footer>
+
+        <script>
+                        // Mobile menu toggle
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (menuBtn) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+                        // Mobile products dropdown
+                        const mpb = document.getElementById('mobileProductsBtn');
+                        const mpl = document.getElementById('mobileProductsList');
+                        if (mpb && mpl) {
+                            mpb.addEventListener('click', () => mpl.classList.toggle('hidden'));
+                        }
+
+            // Reveal on scroll (skip if reduced motion)
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!reduced && 'IntersectionObserver' in window) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add('active');
+                            io.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+                document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+            }
+
+                                    // Continuous autoplay carousel with fallback arrow controls
+                                    document.querySelectorAll('[data-carousel]').forEach((wrap) => {
+                                        const track = wrap.querySelector('.carousel-track');
+                                        const prev = wrap.querySelector('[data-prev]');
+                                        const next = wrap.querySelector('[data-next]');
+                                        if (!track) return;
+
+                                        // Duplicate items to enable seamless loop scrolling
+                                        const items = Array.from(track.children);
+                                        if (items.length) {
+                                            items.forEach((n) => track.appendChild(n.cloneNode(true)));
+                                        }
+
+                                        const speed = parseFloat(wrap.getAttribute('data-speed') || '0.3'); // px per ms
+                                        const autoplay = wrap.hasAttribute('data-autoplay');
+                                        let rafId = null;
+                                        let last = performance.now();
+                                        let paused = false;
+
+                                        const step = (t) => {
+                                            const dt = t - last; last = t;
+                                            if (!paused) {
+                                                track.scrollLeft += dt * speed; // continuous movement
+                                                // reset when half (original length) scrolled
+                                                const half = track.scrollWidth / 2;
+                                                if (track.scrollLeft >= half) track.scrollLeft -= half;
+                                            }
+                                            rafId = requestAnimationFrame(step);
+                                        };
+
+                                        // Pause on hover or focus to improve accessibility
+                                        ['mouseenter','focusin','touchstart'].forEach(evt => wrap.addEventListener(evt, () => { paused = true; }));
+                                        ['mouseleave','focusout','touchend','touchcancel'].forEach(evt => wrap.addEventListener(evt, () => { paused = false; }));
+
+                                        // Arrow controls: manual movement
+                                        const by = () => track.clientWidth * 0.9;
+                                        prev && prev.addEventListener('click', () => track.scrollBy({ left: -by(), behavior: 'smooth' }));
+                                        next && next.addEventListener('click', () => track.scrollBy({ left: by(), behavior: 'smooth' }));
+
+                                        if (autoplay) {
+                                            if (rafId) cancelAnimationFrame(rafId);
+                                            last = performance.now();
+                                            rafId = requestAnimationFrame(step);
+                                        }
+                                    });
+
+                        // Lucide icons
+                        if (window.lucide) { window.lucide.createIcons(); }
+
+            // Year in footer
+            const y = document.getElementById('year');
+            if (y) y.textContent = new Date().getFullYear();
+
+                        // Static RFQ handler (no backend yet)
+                        const rfq = document.getElementById('rfqForm');
+                        if (rfq) {
+                            rfq.addEventListener('submit', (e) => {
+                                e.preventDefault();
+                                // Basic front-end validation
+                                const valid = rfq.reportValidity ? rfq.reportValidity() : true;
+                                if (!valid) return;
+                                alert('Thanks! This is a static demo. Your details would be sent to the team in the dynamic phase.');
+                                rfq.reset();
+                            });
+                        }
+        </script>
+    </body>
+    </html>

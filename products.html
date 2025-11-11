@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Products | M.A. Engineering Industries</title>
+  <meta name="description" content="Browse all products with category filters, sorting, and quick view." />
+  <meta name="theme-color" content="#D9252A" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { 'brand-red': '#D9252A', 'brand-green': '#3A9D49', ink: '#1F2937' },
+          boxShadow: { elevate: '0 10px 20px rgba(0,0,0,0.06), 0 6px 6px rgba(0,0,0,0.08)' }
+        }
+      }
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @media (prefers-reduced-motion: no-preference){
+      .reveal{opacity:0;transform:translateY(16px);transition:all .6s ease}
+      .reveal.active{opacity:1;transform:translateY(0)}
+    }
+    .scrollbar-thin{scrollbar-width:thin}
+  </style>
+</head>
+<body class="min-h-screen bg-white text-ink">
+  <!-- Header copied to match index.html -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+      <div class="relative min-h-[150px] py-2 flex items-center justify-center">
+        <nav class="hidden md:flex items-center gap-6 absolute left-0">
+          <a href="index.html" class="hover:text-brand-red">Home</a>
+          <a href="index.html#about" class="hover:text-brand-red">About</a>
+          <div class="relative group">
+            <button class="inline-flex items-center gap-1 hover:text-brand-red">
+              Products
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </button>
+            <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition pointer-events-none group-hover:pointer-events-auto absolute left-0 mt-3 w-64 rounded-lg border bg-white shadow-elevate p-2">
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Enclosures</a>
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Control Panels</a>
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Inverter Cabinets</a>
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Fire Alarm Boxes</a>
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Brackets & Components</a>
+            </div>
+          </div>
+          <a href="index.html#services" class="hover:text-brand-red">Services</a>
+          <a href="index.html#work" class="hover:text-brand-red">Work</a>
+          <a href="index.html#contact" class="hover:text-brand-red">Contact</a>
+        </nav>
+        <a href="index.html" class="absolute left-1/2 -translate-x-1/2">
+          <img src="logo.svg" alt="M.A. Engineering Industries logo" width="200" height="150" class="block w-[200px] h-[150px] object-contain" />
+        </a>
+        <div class="absolute right-0 flex items-center gap-3">
+          <a href="index.html#contact" class="hidden md:inline-flex items-center rounded-md bg-brand-red px-4 py-2 text-white shadow hover:bg-red-700 transition">Request a Quote</a>
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:bg-gray-100" aria-label="Open menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <nav class="flex flex-col gap-1">
+          <a href="index.html" class="py-2 px-2 rounded hover:bg-gray-50">Home</a>
+          <a href="index.html#about" class="py-2 px-2 rounded hover:bg-gray-50">About</a>
+          <button id="mobileProductsBtn" class="py-2 px-2 text-left rounded hover:bg-gray-50 inline-flex items-center justify-between">
+            <span>Products</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div id="mobileProductsList" class="hidden pl-4">
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Enclosures</a>
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Control Panels</a>
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Inverter Cabinets</a>
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Fire Alarm Boxes</a>
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Brackets & Components</a>
+          </div>
+          <a href="index.html#services" class="py-2 px-2 rounded hover:bg-gray-50">Services</a>
+          <a href="index.html#work" class="py-2 px-2 rounded hover:bg-gray-50">Work</a>
+          <a href="index.html#contact" class="py-2 px-2 rounded hover:bg-gray-50">Contact</a>
+          <a href="index.html#contact" class="mt-2 inline-flex items-center justify-center rounded-md bg-brand-red px-4 py-2 text-white shadow hover:bg-red-700">Request a Quote</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page heading & mobile filter button -->
+    <section class="border-b">
+      <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 py-6 flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold">All Products</h1>
+          <p class="text-gray-600">Use filters to narrow down by product category.</p>
+        </div>
+        <button id="openFilters" class="md:hidden inline-flex items-center gap-2 rounded-md border px-3 py-2 hover:bg-gray-50" aria-label="Open filters">
+          <i data-lucide="filter"></i>
+          Filters
+        </button>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 py-8 grid md:grid-cols-[270px,1fr] gap-6">
+      <!-- Sidebar filters (desktop) -->
+      <aside class="hidden md:block">
+        <div class="sticky top-[160px]">
+          <div class="rounded-xl border p-4 bg-white shadow-sm">
+            <div class="flex items-center gap-2">
+              <i data-lucide="list-filter" class="text-brand-green"></i>
+              <h2 class="font-semibold">Product Categories</h2>
+            </div>
+            <div class="mt-3">
+              <label class="block text-sm text-gray-600">Find a category</label>
+              <div class="mt-1 relative">
+                <input id="catSearch" type="text" class="w-full rounded-md border px-3 py-2 pr-8 focus:ring-2 focus:ring-brand-green" placeholder="Type to filter" />
+                <i data-lucide="search" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400"></i>
+              </div>
+            </div>
+            <ul id="categoryList" class="mt-4 space-y-2 max-h-[420px] overflow-auto pr-2 scrollbar-thin"></ul>
+            <div class="mt-4 flex justify-between text-sm">
+              <button id="clearFilters" class="underline text-gray-600 hover:text-brand-red">Clear filters</button>
+              <span id="catCount" class="text-gray-500"></span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Product area -->
+      <div>
+        <!-- Toolbar -->
+        <div class="rounded-xl border bg-white p-3 md:p-4 shadow-sm flex flex-wrap gap-3 items-center justify-between">
+          <div class="text-sm text-gray-600" id="summary">Loading…</div>
+          <div class="flex items-center gap-2">
+            <label class="text-sm text-gray-600">Sort</label>
+            <select id="sortSelect" class="rounded-md border px-2 py-2 focus:ring-2 focus:ring-brand-green text-sm">
+              <option value="default">Default sorting</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A → Z</option>
+              <option value="name-desc">Name: Z → A</option>
+            </select>
+            <div class="hidden sm:flex items-center gap-1 ml-2" role="group" aria-label="Layout">
+              <button data-layout="grid" class="layout-btn inline-flex items-center justify-center rounded border px-2 py-1 hover:bg-gray-50" title="Grid">
+                <i data-lucide="grid"></i>
+              </button>
+              <button data-layout="compact" class="layout-btn inline-flex items-center justify-center rounded border px-2 py-1 hover:bg-gray-50" title="Compact">
+                <i data-lucide="rows"></i>
+              </button>
+            </div>
+            <label class="text-sm text-gray-600 ml-2">Show</label>
+            <select id="perPage" class="rounded-md border px-2 py-2 focus:ring-2 focus:ring-brand-green text-sm">
+              <option>12</option>
+              <option>24</option>
+              <option>48</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div id="grid" class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+
+        <!-- Pagination / Load more -->
+        <div class="mt-6 flex items-center justify-center">
+          <button id="loadMore" class="hidden inline-flex items-center rounded-md border px-5 py-3 hover:bg-gray-50">Load more</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile filter drawer -->
+  <div id="filterDrawer" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/40" data-close></div>
+    <div class="absolute left-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-elevate p-4 overflow-auto">
+      <div class="flex items-center justify-between">
+        <h3 class="font-semibold">Filters</h3>
+        <button class="rounded p-2 hover:bg-gray-100" data-close aria-label="Close filters"><i data-lucide="x"></i></button>
+      </div>
+      <div class="mt-3">
+        <label class="block text-sm text-gray-600">Find a category</label>
+        <div class="mt-1 relative">
+          <input id="mCatSearch" type="text" class="w-full rounded-md border px-3 py-2 pr-8 focus:ring-2 focus:ring-brand-green" placeholder="Type to filter" />
+          <i data-lucide="search" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+      <ul id="mCategoryList" class="mt-4 space-y-2"></ul>
+      <div class="mt-4 flex justify-between text-sm">
+        <button id="mClearFilters" class="underline text-gray-600 hover:text-brand-red">Clear filters</button>
+        <span id="mCatCount" class="text-gray-500"></span>
+      </div>
+      <div class="mt-6">
+        <button class="w-full inline-flex items-center justify-center rounded-md bg-brand-red px-4 py-2 text-white hover:bg-red-700" data-close>Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer copied to match index.html -->
+  <footer class="border-t border-gray-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-8 md:grid-cols-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-green/10 text-brand-green font-bold">MA</div>
+          <span class="font-semibold">M.A. Engineering Industries</span>
+        </div>
+        <p class="mt-3 text-sm text-gray-600">Precision sheet metal fabrication for OEMs & SMEs — prototypes to production.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold">Quick Links</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-brand-red">Home</a></li>
+          <li><a href="index.html#about" class="hover:text-brand-red">About</a></li>
+          <li><a href="index.html#services" class="hover:text-brand-red">Services</a></li>
+          <li><a href="index.html#work" class="hover:text-brand-red">Work</a></li>
+          <li><a href="index.html#contact" class="hover:text-brand-red">Contact</a></li>
+          <li><a href="index.html#terms" class="hover:text-brand-red">Terms</a></li>
+          <li><a href="index.html#privacy" class="hover:text-brand-red">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold">Services</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>CNC Turret Punching</li>
+          <li>Laser Cutting</li>
+          <li>Press Brake Bending</li>
+          <li>MIG/TIG/Spot Welding</li>
+          <li>Powder Coating & Assembly</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold">Contact</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>Vasai East, Palghar, Maharashtra</li>
+          <li>Phone: +91 00000 00000</li>
+          <li>Email: info@example.com</li>
+          <li>Mon–Sat: 9:30 AM – 6:30 PM</li>
+          <li class="flex gap-3 pt-2">
+            <a href="#" aria-label="LinkedIn" class="text-gray-500 hover:text-brand-red"><i data-lucide="linkedin"></i></a>
+            <a href="#" aria-label="Instagram" class="text-gray-500 hover:text-brand-red"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="WhatsApp" class="text-gray-500 hover:text-brand-red"><i data-lucide="message-circle"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-200 py-6 text-center text-sm text-gray-500">© <span id="year"></span> M.A. Engineering Industries. All rights reserved. • Designed & created by <a href="#" class="underline hover:text-brand-red">CanStart Technologies</a>.</div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Mobile products dropdown
+    const mpb = document.getElementById('mobileProductsBtn');
+    const mpl = document.getElementById('mobileProductsList');
+    if (mpb && mpl) mpb.addEventListener('click', () => mpl.classList.toggle('hidden'));
+
+    // Reveal on scroll
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('active'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    }
+
+    // Lucide
+    if (window.lucide) window.lucide.createIcons();
+
+    // Footer year
+    const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+
+    // ---- Product data (simulate AJAX) ----
+    const PRODUCTS = [
+      { id: 1, title: 'Motor 1 HP', category: 'HMI', price: 10585, img: 'https://picsum.photos/seed/motor1/600/450', tag: 'OEM' },
+      { id: 2, title: 'Electricals 170M6546 Bussmann Fuse', category: 'Electricals', price: 6452.5, img: 'https://picsum.photos/seed/fuse1/600/450', tag: 'USED' },
+      { id: 3, title: 'Automation ABB PCB For Parts', category: 'Automation', price: 12035, img: 'https://picsum.photos/seed/pcb1/600/450', tag: 'Parts' },
+      { id: 4, title: 'ABB HMI Panel', category: 'HMI', price: 15850, img: 'https://picsum.photos/seed/hmi1/600/450', tag: 'HMI' },
+      { id: 5, title: 'PLC Module S7-1200', category: 'PLC', price: 32500, img: 'https://picsum.photos/seed/plc1/600/450', tag: 'PLC' },
+      { id: 6, title: 'AC DRIVE 2.2kW', category: 'AC DRIVE', price: 22000, img: 'https://picsum.photos/seed/drive1/600/450', tag: 'Drive' },
+      { id: 7, title: 'ACB Breaker 1000A', category: 'ACB', price: 42000, img: 'https://picsum.photos/seed/acb1/600/450', tag: 'Breaker' },
+      { id: 8, title: 'Capacitor 100uF', category: 'Capacitors', price: 950, img: 'https://picsum.photos/seed/cap1/600/450', tag: 'Component' },
+      { id: 9, title: 'Circuit Breaker 32A', category: 'Circuit Breakers', price: 850, img: 'https://picsum.photos/seed/cb1/600/450', tag: 'Safety' },
+      { id: 10, title: 'Coils & Filters Set', category: 'Coils & Filters', price: 2100, img: 'https://picsum.photos/seed/coil1/600/450', tag: 'Set' },
+      { id: 11, title: 'Industrial PLC I/O', category: 'PLC', price: 18200, img: 'https://picsum.photos/seed/plc2/600/450', tag: 'PLC' },
+      { id: 12, title: 'Automation Sensor Kit', category: 'Automation', price: 5200, img: 'https://picsum.photos/seed/sensor1/600/450', tag: 'Automation' },
+      { id: 13, title: 'HMI Touch 7"', category: 'HMI', price: 21500, img: 'https://picsum.photos/seed/hmi2/600/450', tag: 'HMI' },
+      { id: 14, title: 'Fuse High-Voltage', category: 'Electricals', price: 7400, img: 'https://picsum.photos/seed/fuse2/600/450', tag: 'NEW' },
+      { id: 15, title: 'AC DRIVE 5.5kW', category: 'AC DRIVE', price: 38500, img: 'https://picsum.photos/seed/drive2/600/450', tag: 'Drive' },
+      { id: 16, title: 'Capacitor 470uF', category: 'Capacitors', price: 450, img: 'https://picsum.photos/seed/cap2/600/450', tag: 'Component' },
+      { id: 17, title: 'Breaker 63A', category: 'Circuit Breakers', price: 1150, img: 'https://picsum.photos/seed/cb2/600/450', tag: 'Safety' },
+      { id: 18, title: 'Industrial Enclosure', category: 'Enclosures', price: 12500, img: 'https://picsum.photos/seed/enclosure1/600/450', tag: 'IP Rated' },
+      { id: 19, title: 'Control Panel Cabinet', category: 'Control Panels', price: 28900, img: 'https://picsum.photos/seed/panel1/600/450', tag: 'OEM' },
+      { id: 20, title: 'Inverter Cabinet', category: 'Inverter Cabinets', price: 33500, img: 'https://picsum.photos/seed/inverter1/600/450', tag: 'Heavy-Duty' },
+      { id: 21, title: 'Fire Alarm Box', category: 'Fire Alarm Boxes', price: 8900, img: 'https://picsum.photos/seed/firebox1/600/450', tag: 'Safety' },
+      { id: 22, title: 'Brackets & Components Kit', category: 'Brackets & Components', price: 3200, img: 'https://picsum.photos/seed/brackets1/600/450', tag: 'Custom' },
+      { id: 23, title: 'Motor 5 HP', category: 'HMI', price: 24500, img: 'https://picsum.photos/seed/motor2/600/450', tag: 'OEM' },
+      { id: 24, title: 'PLC CPU Module', category: 'PLC', price: 44500, img: 'https://picsum.photos/seed/plc3/600/450', tag: 'PLC' }
+    ];
+
+    // Build category list with counts
+    const baseCounts = PRODUCTS.reduce((acc, p) => { acc[p.category] = (acc[p.category]||0)+1; return acc; }, {});
+    const categories = Object.keys(baseCounts).sort((a,b)=>a.localeCompare(b));
+
+    const state = {
+      selectedCats: new Set(),
+      sort: 'default',
+      perPage: 12,
+      page: 1,
+      layout: 'grid',
+    };
+
+    const grid = document.getElementById('grid');
+    const summary = document.getElementById('summary');
+    const sortSelect = document.getElementById('sortSelect');
+    const perPage = document.getElementById('perPage');
+    const loadMore = document.getElementById('loadMore');
+
+    function buildCategoryLists() {
+      const ul = document.getElementById('categoryList');
+      const mul = document.getElementById('mCategoryList');
+      ul.innerHTML = ''; mul.innerHTML = '';
+      categories.forEach(cat => {
+        const count = baseCounts[cat] || 0;
+        const li = document.createElement('li');
+        li.innerHTML = `<label class="flex items-center gap-2 text-sm"><input type="checkbox" value="${cat}" class="catCB rounded border"> <span class="flex-1">${cat}</span><span class="text-gray-500">${count}</span></label>`;
+        ul.appendChild(li);
+        const mli = li.cloneNode(true); mli.querySelector('input').classList.add('mCatCB'); mul.appendChild(mli);
+      });
+      document.getElementById('catCount').textContent = `${categories.length} categories`;
+      document.getElementById('mCatCount').textContent = `${categories.length} categories`;
+    }
+
+    function applyFilters(products){
+      let list = [...products];
+      if (state.selectedCats.size) list = list.filter(p => state.selectedCats.has(p.category));
+      // sort
+      switch(state.sort){
+        case 'price-asc': list.sort((a,b)=>a.price-b.price); break;
+        case 'price-desc': list.sort((a,b)=>b.price-a.price); break;
+        case 'name-asc': list.sort((a,b)=>a.title.localeCompare(b.title)); break;
+        case 'name-desc': list.sort((a,b)=>b.title.localeCompare(a.title)); break;
+        default: break;
+      }
+      return list;
+    }
+
+    function formatINR(v){ return new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(v); }
+
+    function render(){
+      const filtered = applyFilters(PRODUCTS);
+      const total = filtered.length;
+      const pageSize = state.perPage;
+      const slice = filtered.slice(0, state.page * pageSize);
+
+      grid.className = state.layout==='compact' ? 'mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
+      grid.innerHTML = slice.map(p => `
+        <article class="rounded-xl border bg-white shadow-sm overflow-hidden ${state.layout==='compact' ? 'p-0' : ''}">
+          <div class="h-48 w-full bg-gray-100 overflow-hidden">
+            <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-sm sm:text-base">${p.title}</h3>
+              <span class="text-[10px] sm:text-xs rounded-full bg-gray-100 px-2 py-0.5">${p.tag}</span>
+            </div>
+            <p class="text-xs text-gray-500">${p.category}</p>
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-brand-red">${formatINR(p.price)}</span>
+              <a href="product-electrical-enclosure.html" class="inline-flex items-center rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50">Read More</a>
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      const shown = slice.length;
+      summary.textContent = `Showing ${shown} of ${total} products`;
+      loadMore.classList.toggle('hidden', shown >= total);
+    }
+
+    // Event wiring
+    sortSelect.addEventListener('change', (e)=>{ state.sort = e.target.value; state.page = 1; render(); });
+    perPage.addEventListener('change', (e)=>{ state.perPage = parseInt(e.target.value,10); state.page = 1; render(); });
+    document.querySelectorAll('.layout-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{ state.layout = btn.dataset.layout; render(); });
+    });
+    loadMore.addEventListener('click', ()=>{ state.page += 1; render(); });
+
+    // Desktop category checkboxes
+    function syncSelectedFrom(selector){
+      state.selectedCats = new Set(Array.from(document.querySelectorAll(selector+':checked')).map(i=>i.value));
+      state.page = 1; render();
+    }
+
+    // Build lists and add listeners
+    buildCategoryLists();
+    document.getElementById('categoryList').addEventListener('change', ()=> syncSelectedFrom('.catCB'));
+    document.getElementById('mCategoryList').addEventListener('change', ()=> {
+      syncSelectedFrom('.mCatCB');
+      // mirror selection to desktop list
+      const mchecked = new Set(Array.from(document.querySelectorAll('.mCatCB:checked')).map(i=>i.value));
+      document.querySelectorAll('.catCB').forEach(cb=>{ cb.checked = mchecked.has(cb.value); });
+    });
+
+    // Clear filters
+    const clearFilters = ()=>{
+      state.selectedCats.clear();
+      document.querySelectorAll('.catCB, .mCatCB').forEach(cb=>cb.checked=false);
+      state.page = 1; render();
+    };
+    document.getElementById('clearFilters').addEventListener('click', clearFilters);
+    document.getElementById('mClearFilters').addEventListener('click', clearFilters);
+
+    // Category search (desktop + mobile)
+    function attachCatSearch(inputId, listId){
+      const input = document.getElementById(inputId);
+      const list = document.getElementById(listId);
+      input.addEventListener('input', ()=>{
+        const q = input.value.toLowerCase();
+        Array.from(list.children).forEach(li=>{
+          const name = li.textContent.toLowerCase();
+          li.style.display = name.includes(q) ? '' : 'none';
+        });
+      });
+    }
+    attachCatSearch('catSearch','categoryList');
+    attachCatSearch('mCatSearch','mCategoryList');
+
+    // Mobile drawer
+    const drawer = document.getElementById('filterDrawer');
+    const openFilters = document.getElementById('openFilters');
+    function closeDrawer(){ drawer.classList.add('hidden'); }
+    function openDrawer(){ drawer.classList.remove('hidden'); if (window.lucide) window.lucide.createIcons(); }
+    openFilters.addEventListener('click', openDrawer);
+    drawer.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click', closeDrawer));
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>
