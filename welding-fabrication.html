@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welding & Fabrication Service | MIG TIG Welding | M.A. Engineering Industries</title>
+  <meta name="description" content="MIG/TIG welding and fabrication of sheet metal parts into durable cabinets, boxes, and frames per drawings. Expert metal joining for industrial enclosures." />
+  <meta name="keywords" content="MIG welding, TIG welding, spot welding, sheet metal fabrication, metal cabinets, welded enclosures, metal frames, Vasai, Palghar, Maharashtra" />
+  <meta property="og:title" content="Welding & Fabrication Service | M.A. Engineering Industries" />
+  <meta property="og:description" content="MIG/TIG welding and fabrication of sheet metal parts into durable cabinets, boxes, and frames per drawings." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="theme-color" content="#D9252A" />
+  <link rel="canonical" href="https://maengineeringindustries.com/welding-fabrication.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { 'brand-red': '#D9252A', 'brand-green': '#3A9D49', ink: '#1F2937' },
+          boxShadow: { elevate: '0 10px 20px rgba(0,0,0,0.06), 0 6px 6px rgba(0,0,0,0.08)' }
+        }
+      }
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @media (prefers-reduced-motion: no-preference){
+      .reveal{opacity:0;transform:translateY(16px);transition:all .6s ease}
+      .reveal.active{opacity:1;transform:translateY(0)}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Welding & Fabrication",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "M.A. Engineering Industries",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vasai East",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      }
+    },
+    "description": "MIG/TIG welding and fabrication of sheet metal parts into durable cabinets, boxes, and frames per drawings.",
+    "areaServed": "India"
+  }
+  </script>
+</head>
+<body class="bg-white text-ink">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+      <div class="relative min-h-[150px] py-2 flex items-center justify-center">
+        <!-- Left navigation (desktop) -->
+        <nav class="hidden md:flex items-center gap-6 absolute left-0">
+          <a href="index.html" class="hover:text-brand-red">Home</a>
+          <a href="index.html#about" class="hover:text-brand-red">About</a>
+          <div class="relative group">
+            <button class="inline-flex items-center gap-1 hover:text-brand-red">
+              Products
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </button>
+            <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition pointer-events-none group-hover:pointer-events-auto absolute left-0 mt-3 w-64 rounded-lg border bg-white shadow-elevate p-2">
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Enclosures</a>
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Control Panels</a>
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Inverter Cabinets</a>
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Fire Alarm Boxes</a>
+              <a href="index.html#products" class="block rounded px-3 py-2 hover:bg-gray-50">Brackets & Components</a>
+            </div>
+          </div>
+          <a href="index.html#services" class="hover:text-brand-red">Services</a>
+          <a href="index.html#work" class="hover:text-brand-red">Work</a>
+          <a href="index.html#contact" class="hover:text-brand-red">Contact</a>
+        </nav>
+
+        <!-- Centered logo -->
+        <a href="index.html" class="absolute left-1/2 -translate-x-1/2">
+          <img src="logo.svg" alt="M.A. Engineering Industries logo" width="200" height="150" class="block w-[200px] h-[150px] object-contain" />
+        </a>
+
+        <!-- Right actions: CTA (desktop) + Menu button (mobile) -->
+        <div class="absolute right-0 flex items-center gap-3">
+          <a href="index.html#contact" class="hidden md:inline-flex items-center rounded-md bg-brand-red px-4 py-2 text-white shadow hover:bg-red-700 transition">Request a Quote</a>
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:bg-gray-100" aria-label="Open menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <nav class="flex flex-col gap-1">
+          <a href="index.html" class="py-2 px-2 rounded hover:bg-gray-50">Home</a>
+          <a href="index.html#about" class="py-2 px-2 rounded hover:bg-gray-50">About</a>
+          <button id="mobileProductsBtn" class="py-2 px-2 text-left rounded hover:bg-gray-50 inline-flex items-center justify-between">
+            <span>Products</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div id="mobileProductsList" class="hidden pl-4">
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Enclosures</a>
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Control Panels</a>
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Inverter Cabinets</a>
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Fire Alarm Boxes</a>
+            <a href="index.html#products" class="block py-2 px-2 rounded hover:bg-gray-50">Brackets & Components</a>
+          </div>
+          <a href="index.html#services" class="py-2 px-2 rounded hover:bg-gray-50">Services</a>
+          <a href="index.html#work" class="py-2 px-2 rounded hover:bg-gray-50">Work</a>
+          <a href="index.html#contact" class="py-2 px-2 rounded hover:bg-gray-50">Contact</a>
+          <a href="index.html#contact" class="mt-2 inline-flex items-center justify-center rounded-md bg-brand-red px-4 py-2 text-white shadow hover:bg-red-700">Request a Quote</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('assets/img/hero-bg.jpg');">
+      <div class="absolute inset-0 bg-ink/50"></div>
+      <div class="relative mx-auto max-w-7xl px-4 py-10 md:py-16 grid md:grid-cols-2 gap-10 items-center">
+        <div class="reveal">
+          <h1 class="text-4xl font-extrabold tracking-tight text-white">Welding & Fabrication</h1>
+          <p class="mt-4 text-lg text-white/90">MIG/TIG welding and fabrication of sheet metal parts into durable cabinets, boxes, and frames per drawings. Expert metal joining for industrial applications.</p>
+          <div class="mt-6 flex gap-3">
+            <a href="#contact" class="inline-flex items-center rounded-md bg-brand-green px-6 py-3 text-white shadow hover:bg-emerald-700">Request a Quote</a>
+            <a href="index.html#services" class="inline-flex items-center rounded-md border border-white/40 px-6 py-3 text-white hover:bg-white/10">All Services</a>
+          </div>
+        </div>
+        <div class="reveal rounded-xl h-[340px] md:h-[440px] bg-gray-100 overflow-hidden">
+          <img src="https://picsum.photos/seed/welding/1200/800" alt="MIG TIG welding fabrication" class="w-full h-full object-cover" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="py-10">
+      <div class="mx-auto max-w-5xl px-4">
+        <div class="reveal space-y-4">
+          <h2 class="text-2xl font-bold">Overview</h2>
+          <p class="text-gray-600">Our welding and fabrication services transform sheet metal components into complete, structurally sound assemblies. Whether it's a single prototype cabinet or a batch of welded frames, we deliver clean, strong welds with minimal distortion. Our skilled welders work with MS, SS, and aluminium to produce enclosures, boxes, and custom fabricated parts that meet your exact specifications.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welding Processes -->
+    <section class="py-10 bg-gray-50">
+      <div class="mx-auto max-w-5xl px-4">
+        <div class="reveal">
+          <h2 class="text-2xl font-bold">Welding Processes</h2>
+          <div class="mt-6 grid gap-6 sm:grid-cols-3">
+            <div class="rounded-lg border bg-white p-5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10 mb-4">
+                <i data-lucide="flame" class="text-brand-green"></i>
+              </div>
+              <h3 class="font-semibold text-lg">MIG Welding</h3>
+              <p class="mt-2 text-sm text-gray-600">Fast, efficient welding for MS and aluminium. Ideal for high-volume production of cabinets and structural frames with consistent quality.</p>
+            </div>
+            <div class="rounded-lg border bg-white p-5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10 mb-4">
+                <i data-lucide="zap" class="text-brand-green"></i>
+              </div>
+              <h3 class="font-semibold text-lg">TIG Welding</h3>
+              <p class="mt-2 text-sm text-gray-600">Precision welding for stainless steel and thin materials. Clean, aesthetically pleasing welds for visible surfaces and food-grade applications.</p>
+            </div>
+            <div class="rounded-lg border bg-white p-5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10 mb-4">
+                <i data-lucide="circle-dot" class="text-brand-green"></i>
+              </div>
+              <h3 class="font-semibold text-lg">Spot Welding</h3>
+              <p class="mt-2 text-sm text-gray-600">Resistance spot welding for joining overlapping sheet metal. Fast cycle times for brackets, panels, and enclosure assemblies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="py-10">
+      <div class="mx-auto max-w-5xl px-4">
+        <div class="reveal">
+          <h2 class="text-2xl font-bold">Technical Capabilities</h2>
+          <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+            <li class="flex items-start gap-3"><i data-lucide="layers" class="text-brand-green mt-0.5"></i><span>Material thickness: 0.5 mm – 10 mm (MS/SS/Al)</span></li>
+            <li class="flex items-start gap-3"><i data-lucide="ruler" class="text-brand-green mt-0.5"></i><span>Maximum assembly size: 2000 × 1500 × 1000 mm</span></li>
+            <li class="flex items-start gap-3"><i data-lucide="target" class="text-brand-green mt-0.5"></i><span>Weld bead consistency with minimal spatter</span></li>
+            <li class="flex items-start gap-3"><i data-lucide="shield-check" class="text-brand-green mt-0.5"></i><span>Full penetration and leak-proof welds</span></li>
+            <li class="flex items-start gap-3"><i data-lucide="sparkles" class="text-brand-green mt-0.5"></i><span>Post-weld grinding and finishing available</span></li>
+            <li class="flex items-start gap-3"><i data-lucide="scan" class="text-brand-green mt-0.5"></i><span>Jigs & fixtures for repeatable assemblies</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Fabricate -->
+    <section class="py-10 bg-gray-50">
+      <div class="mx-auto max-w-5xl px-4">
+        <div class="reveal">
+          <h2 class="text-2xl font-bold">What We Fabricate</h2>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="rounded-lg border p-4 bg-white">
+              <h3 class="font-semibold flex items-center gap-2"><i data-lucide="box" class="text-brand-green w-5 h-5"></i> Electrical Cabinets</h3>
+              <p class="mt-2 text-sm text-gray-600">Welded enclosures for control panels, junction boxes, and distribution boards with reinforced corners.</p>
+            </div>
+            <div class="rounded-lg border p-4 bg-white">
+              <h3 class="font-semibold flex items-center gap-2"><i data-lucide="archive" class="text-brand-green w-5 h-5"></i> Equipment Housings</h3>
+              <p class="mt-2 text-sm text-gray-600">Sturdy housings for industrial machinery, electronics, and instrumentation.</p>
+            </div>
+            <div class="rounded-lg border p-4 bg-white">
+              <h3 class="font-semibold flex items-center gap-2"><i data-lucide="layout" class="text-brand-green w-5 h-5"></i> Structural Frames</h3>
+              <p class="mt-2 text-sm text-gray-600">Welded frames and chassis for machines, racks, and support structures.</p>
+            </div>
+            <div class="rounded-lg border p-4 bg-white">
+              <h3 class="font-semibold flex items-center gap-2"><i data-lucide="square" class="text-brand-green w-5 h-5"></i> Boxes & Containers</h3>
+              <p class="mt-2 text-sm text-gray-600">Custom metal boxes, bins, and trays for storage and material handling.</p>
+            </div>
+            <div class="rounded-lg border p-4 bg-white">
+              <h3 class="font-semibold flex items-center gap-2"><i data-lucide="git-branch" class="text-brand-green w-5 h-5"></i> Brackets & Supports</h3>
+              <p class="mt-2 text-sm text-gray-600">Heavy-duty welded brackets, mounting plates, and support assemblies.</p>
+            </div>
+            <div class="rounded-lg border p-4 bg-white">
+              <h3 class="font-semibold flex items-center gap-2"><i data-lucide="component" class="text-brand-green w-5 h-5"></i> Custom Assemblies</h3>
+              <p class="mt-2 text-sm text-gray-600">Bespoke welded assemblies per your drawings with integrated hardware.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits & Industries -->
+    <section class="py-10">
+      <div class="mx-auto max-w-5xl px-4 grid md:grid-cols-2 gap-10">
+        <div class="reveal">
+          <h2 class="text-2xl font-bold">Benefits</h2>
+          <ul class="mt-4 space-y-3 text-gray-600">
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="text-brand-green mt-0.5 w-5 h-5"></i><span>Strong, durable joints with full penetration</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="text-brand-green mt-0.5 w-5 h-5"></i><span>Minimal distortion through controlled heat input</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="text-brand-green mt-0.5 w-5 h-5"></i><span>Clean welds requiring minimal post-processing</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="text-brand-green mt-0.5 w-5 h-5"></i><span>One-stop shop: cutting, bending, welding, finishing</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="text-brand-green mt-0.5 w-5 h-5"></i><span>Experienced welders certified for quality work</span></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2 class="text-2xl font-bold">Industries Served</h2>
+          <ul class="mt-4 space-y-3 text-gray-600">
+            <li class="flex items-start gap-2"><i data-lucide="zap" class="text-brand-green mt-0.5 w-5 h-5"></i><span>Electrical & Electronics</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="cpu" class="text-brand-green mt-0.5 w-5 h-5"></i><span>Industrial Automation</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="battery-charging" class="text-brand-green mt-0.5 w-5 h-5"></i><span>Power Electronics & Energy</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="flame" class="text-brand-green mt-0.5 w-5 h-5"></i><span>Safety & Fire Systems</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="building-2" class="text-brand-green mt-0.5 w-5 h-5"></i><span>Telecom & Infrastructure</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process snapshot -->
+    <section class="py-10 bg-gray-50">
+      <div class="mx-auto max-w-5xl px-4 reveal">
+        <h2 class="text-2xl font-bold">How It Works</h2>
+        <ol class="mt-6 grid gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          <li class="flex flex-col items-center text-center gap-2">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10"><i data-lucide="file-input" class="text-brand-green"></i></div>
+            <span class="text-sm font-medium">RFQ & Drawings</span>
+          </li>
+          <li class="flex flex-col items-center text-center gap-2">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10"><i data-lucide="messages-square" class="text-brand-green"></i></div>
+            <span class="text-sm font-medium">DFM Review</span>
+          </li>
+          <li class="flex flex-col items-center text-center gap-2">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10"><i data-lucide="scissors" class="text-brand-green"></i></div>
+            <span class="text-sm font-medium">Cut & Bend</span>
+          </li>
+          <li class="flex flex-col items-center text-center gap-2">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10"><i data-lucide="flame" class="text-brand-green"></i></div>
+            <span class="text-sm font-medium">Weld & Assemble</span>
+          </li>
+          <li class="flex flex-col items-center text-center gap-2">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10"><i data-lucide="shield-check" class="text-brand-green"></i></div>
+            <span class="text-sm font-medium">QC & Inspection</span>
+          </li>
+          <li class="flex flex-col items-center text-center gap-2">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10"><i data-lucide="truck" class="text-brand-green"></i></div>
+            <span class="text-sm font-medium">Dispatch</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-10">
+      <div class="mx-auto max-w-5xl px-4">
+        <div class="reveal">
+          <h2 class="text-2xl font-bold">Frequently Asked Questions</h2>
+          <div class="mt-6 space-y-6">
+            <div class="rounded-lg border bg-white p-4">
+              <h3 class="font-semibold">Which welding process is best for my application?</h3>
+              <p class="text-sm text-gray-600 mt-2">MIG is ideal for MS and aluminium with fast production speeds. TIG is preferred for stainless steel and thin materials where aesthetics matter. Spot welding works best for joining overlapping sheets quickly. We'll recommend the best process during DFM review.</p>
+            </div>
+            <div class="rounded-lg border bg-white p-4">
+              <h3 class="font-semibold">Can you weld parts that were cut or formed elsewhere?</h3>
+              <p class="text-sm text-gray-600 mt-2">Yes, we can weld customer-supplied components. We'll inspect incoming parts for fit-up and quality before welding to ensure strong joints.</p>
+            </div>
+            <div class="rounded-lg border bg-white p-4">
+              <h3 class="font-semibold">Do you offer finishing after welding?</h3>
+              <p class="text-sm text-gray-600 mt-2">Absolutely. We provide weld grinding, surface preparation, powder coating, and hardware installation. Fully finished assemblies ready for use.</p>
+            </div>
+            <div class="rounded-lg border bg-white p-4">
+              <h3 class="font-semibold">What tolerances can you hold on welded assemblies?</h3>
+              <p class="text-sm text-gray-600 mt-2">We typically hold ±1 mm on overall dimensions for welded assemblies. Tighter tolerances possible with jigs and fixtures — discuss your requirements with us.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="py-12 bg-brand-red/5">
+      <div class="mx-auto max-w-3xl px-4 reveal">
+        <h2 class="text-2xl font-bold text-center">Request a Welding & Fabrication Quote</h2>
+        <p class="mt-2 text-center text-gray-600">Send your drawings with welding specifications. We'll respond quickly with pricing and lead time.</p>
+        <form class="mt-6 grid gap-4 rounded-xl border p-4 md:p-6 bg-white shadow-sm" novalidate>
+          <div class="grid md:grid-cols-2 gap-4">
+            <label class="block">
+              <span class="text-sm font-medium">Full Name</span>
+              <input type="text" required class="mt-1 w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-brand-green" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium">Company</span>
+              <input type="text" class="mt-1 w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-brand-green" />
+            </label>
+          </div>
+          <label class="block">
+            <span class="text-sm font-medium">Email</span>
+            <input type="email" required class="mt-1 w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-brand-green" />
+          </label>
+          <div class="grid md:grid-cols-2 gap-4">
+            <label class="block">
+              <span class="text-sm font-medium">Material & Thickness</span>
+              <input type="text" required class="mt-1 w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-brand-green" placeholder="e.g. MS 2 mm, SS304 1.5 mm" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium">Quantity</span>
+              <input type="number" min="1" required class="mt-1 w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-brand-green" />
+            </label>
+          </div>
+          <label class="block">
+            <span class="text-sm font-medium">Message</span>
+            <textarea rows="4" required class="mt-1 w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-brand-green" placeholder="Describe your assembly, welding requirements, and any finishing needs."></textarea>
+          </label>
+          <div class="flex items-center justify-between">
+            <div class="text-xs text-gray-500">We respect NDAs and confidential designs.</div>
+            <button type="submit" class="inline-flex items-center rounded-md bg-brand-red px-5 py-2.5 text-white shadow hover:bg-red-700">Send Request</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-8 md:grid-cols-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-green/10 text-brand-green font-bold">MA</div>
+          <span class="font-semibold">M.A. Engineering Industries</span>
+        </div>
+        <p class="mt-3 text-sm text-gray-600">Precision sheet metal fabrication for OEMs & SMEs — prototypes to production.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold">Quick Links</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-brand-red">Home</a></li>
+          <li><a href="index.html#about" class="hover:text-brand-red">About</a></li>
+          <li><a href="index.html#services" class="hover:text-brand-red">Services</a></li>
+          <li><a href="index.html#work" class="hover:text-brand-red">Work</a></li>
+          <li><a href="index.html#contact" class="hover:text-brand-red">Contact</a></li>
+          <li><a href="index.html#terms" class="hover:text-brand-red">Terms</a></li>
+          <li><a href="index.html#privacy" class="hover:text-brand-red">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold">Services</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="index.html#services" class="hover:text-brand-red">CNC Turret Punching</a></li>
+          <li><a href="laser-cutting.html" class="hover:text-brand-red">Laser Cutting</a></li>
+          <li><a href="sheet-metal-bending.html" class="hover:text-brand-red">Press Brake Bending</a></li>
+          <li><a href="welding-fabrication.html" class="text-brand-red font-medium">MIG/TIG/Spot Welding</a></li>
+          <li><a href="index.html#services" class="hover:text-brand-red">Powder Coating & Assembly</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold">Contact</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>Vasai East, Palghar, Maharashtra</li>
+          <li>Phone: +91 00000 00000</li>
+          <li>Email: info@example.com</li>
+          <li>Mon–Sat: 9:30 AM – 6:30 PM</li>
+          <li class="flex gap-3 pt-2">
+            <a href="#" aria-label="LinkedIn" class="text-gray-500 hover:text-brand-red"><i data-lucide="linkedin"></i></a>
+            <a href="#" aria-label="Instagram" class="text-gray-500 hover:text-brand-red"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="WhatsApp" class="text-gray-500 hover:text-brand-red"><i data-lucide="message-circle"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-200 py-6 text-center text-sm text-gray-500">© <span id="year"></span> M.A. Engineering Industries. All rights reserved. • Designed & created by <a href="#" class="underline hover:text-brand-red">CanStart Technologies</a>.</div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Mobile products dropdown
+    const mpb = document.getElementById('mobileProductsBtn');
+    const mpl = document.getElementById('mobileProductsList');
+    if (mpb && mpl) {
+      mpb.addEventListener('click', () => mpl.classList.toggle('hidden'));
+    }
+
+    // Reveal on scroll (skip if reduced motion)
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('active');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    }
+
+    // Lucide icons
+    if (window.lucide) { window.lucide.createIcons(); }
+
+    // Year in footer
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
